@@ -72,6 +72,7 @@ class RolePermissionSeeder extends Seeder
             'guard_name' => 'web',
         ]);
         $admin->syncPermissions($permissions);
+        $manager->syncPermissions($permissions);
 
         $sales->syncPermissions([
             'view categories',
@@ -81,31 +82,6 @@ class RolePermissionSeeder extends Seeder
             'view stores',
             'view inventory',
             'view purchases',
-            'view sales',
-            'create sales',
-            'cancel sales',
-        ]);
-
-        $manager->syncPermissions([
-            'view categories',
-            'create categories',
-            'update categories',
-            'view products',
-            'create products',
-            'update products',
-            'view brands',
-            'create brands',
-            'update brands',
-            'view units',
-            'create units',
-            'update units',
-            'view stores',
-            'view inventory',
-            'adjust inventory',
-            'transfer inventory',
-            'view purchases',
-            'create purchases',
-            'approve purchases',
             'view sales',
             'create sales',
             'cancel sales',

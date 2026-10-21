@@ -7,6 +7,11 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\ProductVariantController;
+use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\PurchaseOrderController;
+use App\Http\Controllers\Api\StockLocationController;
+use \App\Http\Controllers\Api\StockBalanceController;
+use \App\Http\Controllers\Api\StoreController;
 
 // Category routes
 Route::post('/categories', [CategoryController::class, 'store']);
@@ -37,3 +42,10 @@ Route::apiResource('brands', BrandController::class);
 Route::apiResource('units', UnitController::class);
 Route::apiResource('products', ProductController::class);
 Route::apiResource('product-variants', ProductVariantController::class);
+
+// Inventory API Routes
+Route::apiResource('suppliers', SupplierController::class);
+Route::apiResource('purchase-orders', PurchaseOrderController::class);
+Route::apiResource('stock-locations', StockLocationController::class);
+Route::apiResource('stock-balances', StockBalanceController::class);
+Route::apiResource('stores', StoreController::class);
