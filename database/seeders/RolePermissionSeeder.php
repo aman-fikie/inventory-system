@@ -48,6 +48,18 @@ class RolePermissionSeeder extends Seeder
             'view sales',
             'create sales',
             'cancel sales',
+            // Customer permissions
+            'create customer',
+            'update customer',
+            'delete customer',
+            'view customer',
+            // Role permissions
+            'view roles',
+            'create roles',
+            'update roles',
+            'delete roles',
+            // Report permissions
+            'view reports',
         ];
 
         foreach ($permissions as $permissionName) {

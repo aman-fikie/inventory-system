@@ -12,6 +12,10 @@ use App\Http\Controllers\Api\PurchaseOrderController;
 use App\Http\Controllers\Api\StockLocationController;
 use \App\Http\Controllers\Api\StockBalanceController;
 use \App\Http\Controllers\Api\StoreController;
+use \App\Http\Controllers\Api\CustomerController;
+use \App\Http\Controllers\Api\RegisterController;
+use \App\Http\Controllers\Api\PosSessionController;
+use \App\Http\Controllers\Api\SaleController;
 
 // Category routes
 Route::post('/categories', [CategoryController::class, 'store']);
@@ -49,3 +53,12 @@ Route::apiResource('purchase-orders', PurchaseOrderController::class);
 Route::apiResource('stock-locations', StockLocationController::class);
 Route::apiResource('stock-balances', StockBalanceController::class);
 Route::apiResource('stores', StoreController::class);
+
+// Customer API Routes
+Route::apiResource('customers', CustomerController::class);
+
+Route::apiResource('registers', RegisterController::class);
+Route::apiResource('pos-sessions', PosSessionController::class)->except(['update', 'destroy']);
+Route::post('pos-sessions/{id}/close', [PosSessionController::class, 'closeSession']);
+
+Route::apiResource('sales', SaleController::class)->except(['update', 'destroy']);
