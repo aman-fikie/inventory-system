@@ -16,6 +16,7 @@ use \App\Http\Controllers\Api\CustomerController;
 use \App\Http\Controllers\Api\RegisterController;
 use \App\Http\Controllers\Api\PosSessionController;
 use \App\Http\Controllers\Api\SaleController;
+use App\Http\Controllers\Api\ReportController;
 
 // Category routes
 Route::post('/categories', [CategoryController::class, 'store']);
@@ -56,9 +57,16 @@ Route::apiResource('stores', StoreController::class);
 
 // Customer API Routes
 Route::apiResource('customers', CustomerController::class);
-
+// Register API Routes
 Route::apiResource('registers', RegisterController::class);
 Route::apiResource('pos-sessions', PosSessionController::class)->except(['update', 'destroy']);
 Route::post('pos-sessions/{id}/close', [PosSessionController::class, 'closeSession']);
-
+// Sale API Routes
 Route::apiResource('sales', SaleController::class)->except(['update', 'destroy']);
+
+// Report API Routes
+Route::prefix('reports')->group(function () {
+    Route::get('sales', [ReportController::class, 'salesReport']);
+    Route::get('low-stock', [ReportController::class, 'lowStockReport']);
+    Route::get('cash-reconciliation', [ReportController::class, 'cashReconciliationReport']);
+});
